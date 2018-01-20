@@ -1,7 +1,6 @@
 import os
 from oauth2client.file import Storage
 
-
 def get_credentials(app_name):
     """Gets valid user credentials from storage.
 

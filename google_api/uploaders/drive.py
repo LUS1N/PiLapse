@@ -1,7 +1,8 @@
+from google_api.uploaders.base import BaseUploader 
 
-class Drive:
+class Drive(BaseUploader):
 
-    name = "something"
+    def __init__(self, appName):
+        BaseUploader.__init__(self, appName, "drive")
 
-    def test_me(self, asd):
-        print(self.name + asd)
+    

@@ -1,4 +1,5 @@
-from google_api.credentials.get_credentials import get_credentials 
+from google_api.uploaders.youtube import Youtube  
 
 
-print(get_credentials("PiLapse"))
+youtube = Youtube('PiLapse')
+print(youtube.service)
