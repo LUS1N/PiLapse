@@ -1,26 +1,12 @@
 #!/bin/bash
 
-function upsert_dir {
-    if [ ! -d "$1" ]; then
-        mkdir "$1"
-        echo "$1"
-    fi
-}  
+cd ~
 
-function delete_dir {
-    rm -rf  "$1"
-}  
+source utils.sh
 
 DIRECTORY="pilapse"
 STILLS_DIRECTORY="stills"
 OUT_DIRECTORY="out"
-
-
-timesValue=`cat times`
-from="${timesValue%,*}"
-to="${timesValue##*,}"
-
-cd ~
 
 upsert_dir "$DIRECTORY"
 
@@ -34,7 +20,7 @@ upsert_dir "$STILLS_DIRECTORY"
 
 echo "Starting taking pictures"
 
-./take_pictures.py $to $STILLS_DIRECTORY -p 1
+./take_pictures.py $TO_TIME $STILLS_DIRECTORY -p 1
 
 echo "Taking pictures complete"
 
