@@ -17,12 +17,10 @@ if [ "$(ls -A $STILLS_DIRECTORY)" ]; then
         source bash-scripts/take_pictures.sh "$stills"
         source bash-scripts/render.sh
         source bash-scripts/upload.sh
-        source bash-scripts/cleanup.sh
     else 
         echo "Outside of time limits, make and upload video from current amount of slides"
         source bash-scripts/render.sh
         source bash-scripts/upload.sh
-        source bash-scripts/cleanup.sh
     fi
 # if empty:
 else

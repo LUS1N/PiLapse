@@ -8,3 +8,9 @@ echo Emptying trash
 trash-empty
 
 echo Trash emptied.
+
+
+upsert_dir "$OUT_DIRECTORY"
+upsert_dir "$STILLS_DIRECTORY"
+
+
