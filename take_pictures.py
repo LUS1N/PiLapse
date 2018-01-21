@@ -16,7 +16,9 @@ def take_pictures(film_until, dir, picture_number, resolution, interval, annotat
     """
 
     print("Script to take pictures starting.")
-    
+    print("Will take pictures until %d" % film_until)
+
+
     if not resolution:
         print('Setting default resolution of 1920x1080')
         resolution = (1920, 1080)
