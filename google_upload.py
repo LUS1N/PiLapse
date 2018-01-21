@@ -58,6 +58,7 @@ def youtube_upload(arguments):
 
 if __name__ == '__main__':
     arguments = parse_args()
+    print(arguments)
     drive_upload(arguments)
     youtube_upload(arguments)
 
