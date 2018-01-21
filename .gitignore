@@ -7,3 +7,4 @@ client_secrets/
 **/.vscode/
 stills/
 test.py
+test.*
