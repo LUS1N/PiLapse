@@ -3,3 +3,7 @@ client_secrets/
 **.*.pyc
 **.*.jpg
 **.*.mp4
+
+**/.vscode/
+
+test.py
