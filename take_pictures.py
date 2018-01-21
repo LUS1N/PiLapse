@@ -1,6 +1,6 @@
 import argparse
 from datetime import datetime
-# from picamera import PiCamera
+from picamera import PiCamera
 from time import sleep
 import os
 
@@ -14,21 +14,25 @@ def take_pictures(film_until, dir, picture_number, resolution, interval, annotat
         Annotates each picture with HH:MM on top of the picture if
         *annotate* == True
     """
+
+    Print("Script to take pictures starting.")
     camera = PiCamera()
     camera.resolution = resolution
     camera.start_preview()
 
     if not picture_number:
+        print('Will start counting pictures at 1')
         picture_number = 1
 
     if not resolution:
+        print('Setting default resolution of 1920x1080')
         resolution = (1920, 1080)
 
     if not interval:
+        print('Setting default picture interval of 4 seconds.')
         interval = 4
 
     while True:
-        sleep(interval)
         time = datetime.now().time()
 
         if annotate:
@@ -44,11 +48,14 @@ def take_pictures(film_until, dir, picture_number, resolution, interval, annotat
         if time.hour == film_until:
             break
 
+        sleep(interval)
+
     camera.stop_preview()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+
     parser.add_argument(
         'film_until', help='Stop taking pictures at this hour.', type=int)
 
@@ -65,7 +72,6 @@ if __name__ == '__main__':
                         help="Annotate pictures with time it was taken")
 
     arguments = parser.parse_args()
-    print(arguments)
 
     take_pictures(film_until=arguments.film_until,
                   dir=arguments.dir,
