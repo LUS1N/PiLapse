@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd ~/PiLapse
 source bash-scripts/utils.sh
 
 source bash-scripts/take_pictures.sh 1

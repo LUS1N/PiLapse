@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Run at startup
+cd ~/PiLapse
 
 # reads all required env variables and functions
 source bash-scripts/utils.sh
