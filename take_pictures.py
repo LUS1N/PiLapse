@@ -15,7 +15,12 @@ def take_pictures(film_until, dir, picture_number, resolution, interval, annotat
         *annotate* == True
     """
 
-    Print("Script to take pictures starting.")
+    print("Script to take pictures starting.")
+    
+    if not resolution:
+        print('Setting default resolution of 1920x1080')
+        resolution = (1920, 1080)
+        
     camera = PiCamera()
     camera.resolution = resolution
     camera.start_preview()
@@ -24,9 +29,6 @@ def take_pictures(film_until, dir, picture_number, resolution, interval, annotat
         print('Will start counting pictures at 1')
         picture_number = 1
 
-    if not resolution:
-        print('Setting default resolution of 1920x1080')
-        resolution = (1920, 1080)
 
     if not interval:
         print('Setting default picture interval of 4 seconds.')
@@ -76,6 +78,6 @@ if __name__ == '__main__':
     take_pictures(film_until=arguments.film_until,
                   dir=arguments.dir,
                   picture_number=arguments.picture_number,
-                  resolution=arguments.resolution,
+                  resolution=None,
                   interval=arguments.interval,
                   annotate=arguments.annotate)
