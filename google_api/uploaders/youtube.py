@@ -1,5 +1,9 @@
 from google_api.uploaders.base import BaseUploader
 
+from apiclient.http import MediaFileUpload
+
+
+
 class Youtube(BaseUploader):
     """Class handling uploading videos yo Youtube
     """
@@ -23,6 +27,8 @@ class Youtube(BaseUploader):
                 'privacyStatus': privacy_status
             }
         }
+        media = MediaFileUpload(path, chunksize=-1,
+                                               resumable=True, mimetype="application/octet-stream")
 
         return self.service.videos().insert(part=",".join(
-            body.keys()), body=body, media_body=path).execute()
+            body.keys()), body=body, media_body=media).execute()

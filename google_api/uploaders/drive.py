@@ -14,9 +14,10 @@ class Drive(BaseUploader):
             'name': file_name,
             'parents': [root_id]
         }
-
+        media = MediaFileUpload(file_path, chunksize=-1,
+                                resumable=True, mimetype="application/octet-stream")
         file = self.service.files().create(body=file_metadata,
-                                           media_body=file_path,
+                                           media_body=media,
                                            fields='id, name').execute()
         return file
 
